@@ -1,0 +1,25 @@
+proxy:
+    port: 8080
+    authentication: simple
+    admin-groups: admins
+    users:
+    - name: jack
+      password: password
+      groups: admins
+    - name: jeff
+      password: password
+    - name: tom
+      password: password
+      groups: scientists
+    docker:
+      internal-networking: false
+    specs:
+    - id: euler
+      display-name: Euler's number
+      container-cmd: ["R", "-e", "shiny::runApp('/root/euler')"]
+      container-image: euler-img
+
+logging:
+  file:
+    shinyproxy.log
+    
